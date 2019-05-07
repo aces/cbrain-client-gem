@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **tasks_get**
-> Array&lt;CbrainTask&gt; tasks_get
+> Array&lt;CbrainTask&gt; tasks_get(opts)
 
 Get the list of Tasks.
 
@@ -30,9 +30,14 @@ end
 
 api_instance = CbrainClient::TasksApi.new
 
+opts = { 
+  page: 56, # Integer | Page number when paginating. See also the per_page parameter
+  per_page: 56 # Integer | Size of each page when paginating. See also the page parameter
+}
+
 begin
   #Get the list of Tasks.
-  result = api_instance.tasks_get
+  result = api_instance.tasks_get(opts)
   p result
 rescue CbrainClient::ApiError => e
   puts "Exception when calling TasksApi->tasks_get: #{e}"
@@ -40,7 +45,11 @@ end
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **Integer**| Page number when paginating. See also the per_page parameter | [optional] 
+ **per_page** | **Integer**| Size of each page when paginating. See also the page parameter | [optional] 
 
 ### Return type
 

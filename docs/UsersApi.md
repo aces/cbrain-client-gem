@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **users_get**
-> Array&lt;User&gt; users_get
+> Array&lt;User&gt; users_get(opts)
 
 Returns all of the users in CBRAIN. Only available to admins.
 
@@ -32,9 +32,14 @@ end
 
 api_instance = CbrainClient::UsersApi.new
 
+opts = { 
+  page: 56, # Integer | Page number when paginating. See also the per_page parameter
+  per_page: 56 # Integer | Size of each page when paginating. See also the page parameter
+}
+
 begin
   #Returns all of the users in CBRAIN. Only available to admins.
-  result = api_instance.users_get
+  result = api_instance.users_get(opts)
   p result
 rescue CbrainClient::ApiError => e
   puts "Exception when calling UsersApi->users_get: #{e}"
@@ -42,7 +47,11 @@ end
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **Integer**| Page number when paginating. See also the per_page parameter | [optional] 
+ **per_page** | **Integer**| Size of each page when paginating. See also the page parameter | [optional] 
 
 ### Return type
 

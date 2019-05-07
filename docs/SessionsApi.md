@@ -118,9 +118,9 @@ require 'cbrain_client'
 
 api_instance = CbrainClient::SessionsApi.new
 
-login = "login_example" # String | The username of the user trying to connect.
+login = 'login_example' # String | The username of the user trying to connect.
 
-password = "password_example" # String | The password of the user
+password = 'password_example' # String | The password of the user
 
 
 begin

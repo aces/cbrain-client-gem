@@ -224,7 +224,7 @@ nil (empty response body)
 
 
 # **userfiles_get**
-> Array&lt;Userfile&gt; userfiles_get
+> Array&lt;Userfile&gt; userfiles_get(opts)
 
 List of the Userfiles accessible to the current user.
 
@@ -244,9 +244,14 @@ end
 
 api_instance = CbrainClient::UserfilesApi.new
 
+opts = { 
+  page: 56, # Integer | Page number when paginating. See also the per_page parameter
+  per_page: 56 # Integer | Size of each page when paginating. See also the page parameter
+}
+
 begin
   #List of the Userfiles accessible to the current user.
-  result = api_instance.userfiles_get
+  result = api_instance.userfiles_get(opts)
   p result
 rescue CbrainClient::ApiError => e
   puts "Exception when calling UserfilesApi->userfiles_get: #{e}"
@@ -254,7 +259,11 @@ end
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **Integer**| Page number when paginating. See also the per_page parameter | [optional] 
+ **per_page** | **Integer**| Size of each page when paginating. See also the page parameter | [optional] 
 
 ### Return type
 
@@ -456,17 +465,17 @@ end
 
 api_instance = CbrainClient::UserfilesApi.new
 
-upload_file = File.new("/path/to/file.txt") # File | File content to upload to CBRAIN
+upload_file = File.new('/path/to/file.txt') # File | File content to upload to CBRAIN
 
 data_provider_id = 56 # Integer | The ID of the Data Provider to upload the file to.
 
 userfile_group_id = 56 # Integer | ID of the group that will have access to the Userfile
 
-file_type = "SingleFile" # String | The type of the file
+file_type = 'SingleFile' # String | The type of the file
 
 opts = { 
-  _do_extract: "_do_extract_example", # String | set to the string 'on' to indicate that the uploaded content is a tar.gz or .zip archive that need to be extracted. See also the parameter _up_ex_mode
-  _up_ex_mode: "_up_ex_mode_example" # String | if '_do_extract' is set to 'on', set this to 'collection' to create a single collection, or 'multiple' to create one file per entry in the uploaded content
+  _do_extract: '_do_extract_example', # String | set to the string 'on' to indicate that the uploaded content is a tar.gz or .zip archive that need to be extracted. See also the parameter _up_ex_mode
+  _up_ex_mode: '_up_ex_mode_example' # String | if '_do_extract' is set to 'on', set this to 'collection' to create a single collection, or 'multiple' to create one file per entry in the uploaded content
 }
 
 begin

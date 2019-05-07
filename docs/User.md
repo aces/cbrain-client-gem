@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **city** | **String** | city where the user is located | [optional] 
 **country** | **String** | country where the user is located | [optional] 
 **time_zone** | **String** | time-zone (should make it this an enum) | [optional] 
-**type** | **String** | Classification of user permission level | [optional] [default to &quot;NormalUser&quot;]
+**type** | **String** | Classification of user permission level | [optional] [default to &#39;NormalUser&#39;]
 **site_id** | **Integer** | ID of the site affiliation for the user. | [optional] 
 **last_connected_at** | **String** | time of last connection by the user. (can be empty) | [optional] 
 **account_locked** | **String** | Whether or not the account is locked. | [optional] 

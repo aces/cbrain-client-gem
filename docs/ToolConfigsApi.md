@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **tool_configs_get**
-> Array&lt;ToolConfig&gt; tool_configs_get
+> Array&lt;ToolConfig&gt; tool_configs_get(opts)
 
 Get a list of tool versions installed.
 
@@ -29,9 +29,14 @@ end
 
 api_instance = CbrainClient::ToolConfigsApi.new
 
+opts = { 
+  page: 56, # Integer | Page number when paginating. See also the per_page parameter
+  per_page: 56 # Integer | Size of each page when paginating. See also the page parameter
+}
+
 begin
   #Get a list of tool versions installed.
-  result = api_instance.tool_configs_get
+  result = api_instance.tool_configs_get(opts)
   p result
 rescue CbrainClient::ApiError => e
   puts "Exception when calling ToolConfigsApi->tool_configs_get: #{e}"
@@ -39,7 +44,11 @@ end
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **Integer**| Page number when paginating. See also the per_page parameter | [optional] 
+ **per_page** | **Integer**| Size of each page when paginating. See also the page parameter | [optional] 
 
 ### Return type
 

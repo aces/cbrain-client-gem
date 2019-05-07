@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **bourreaux_get**
-> Array&lt;Bourreau&gt; bourreaux_get
+> Array&lt;Bourreau&gt; bourreaux_get(opts)
 
 Get a list of the Bourreaux available to be used by the current user.
 
@@ -29,9 +29,14 @@ end
 
 api_instance = CbrainClient::BourreauxApi.new
 
+opts = { 
+  page: 56, # Integer | Page number when paginating. See also the per_page parameter
+  per_page: 56 # Integer | Size of each page when paginating. See also the page parameter
+}
+
 begin
   #Get a list of the Bourreaux available to be used by the current user.
-  result = api_instance.bourreaux_get
+  result = api_instance.bourreaux_get(opts)
   p result
 rescue CbrainClient::ApiError => e
   puts "Exception when calling BourreauxApi->bourreaux_get: #{e}"
@@ -39,7 +44,11 @@ end
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **Integer**| Page number when paginating. See also the per_page parameter | [optional] 
+ **per_page** | **Integer**| Size of each page when paginating. See also the page parameter | [optional] 
 
 ### Return type
 

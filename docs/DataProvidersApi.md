@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **data_providers_get**
-> Array&lt;DataProvider&gt; data_providers_get
+> Array&lt;DataProvider&gt; data_providers_get(opts)
 
 Get a list of the Data Providers available to the current user.
 
@@ -34,9 +34,14 @@ end
 
 api_instance = CbrainClient::DataProvidersApi.new
 
+opts = { 
+  page: 56, # Integer | Page number when paginating. See also the per_page parameter
+  per_page: 56 # Integer | Size of each page when paginating. See also the page parameter
+}
+
 begin
   #Get a list of the Data Providers available to the current user.
-  result = api_instance.data_providers_get
+  result = api_instance.data_providers_get(opts)
   p result
 rescue CbrainClient::ApiError => e
   puts "Exception when calling DataProvidersApi->data_providers_get: #{e}"
@@ -44,7 +49,11 @@ end
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **Integer**| Page number when paginating. See also the per_page parameter | [optional] 
+ **per_page** | **Integer**| Size of each page when paginating. See also the page parameter | [optional] 
 
 ### Return type
 
