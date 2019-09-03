@@ -171,7 +171,7 @@ nil (empty response body)
 
 
 # **userfiles_download_post**
-> userfiles_download_post(multi_userfile_mod_req)
+> File userfiles_download_post(multi_userfile_mod_req)
 
 Download several files
 
@@ -196,7 +196,8 @@ multi_userfile_mod_req = CbrainClient::MultiUserfilesModReq.new # MultiUserfiles
 
 begin
   #Download several files
-  api_instance.userfiles_download_post(multi_userfile_mod_req)
+  result = api_instance.userfiles_download_post(multi_userfile_mod_req)
+  p result
 rescue CbrainClient::ApiError => e
   puts "Exception when calling UserfilesApi->userfiles_download_post: #{e}"
 end
@@ -210,7 +211,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-nil (empty response body)
+**File**
 
 ### Authorization
 
@@ -219,7 +220,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
- - **Accept**: application/json, application/xml
+ - **Accept**: application/*, text/*
 
 
 
@@ -281,7 +282,7 @@ Name | Type | Description  | Notes
 
 
 # **userfiles_id_content_get**
-> String userfiles_id_content_get(id)
+> File userfiles_id_content_get(id)
 
 Get the content of a Userfile
 
@@ -321,7 +322,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**String**
+**File**
 
 ### Authorization
 
@@ -330,7 +331,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
- - **Accept**: application/json, application/xml
+ - **Accept**: application/*, text/*
 
 
 
