@@ -12,86 +12,24 @@ Swagger Codegen version: 2.4.43
 require 'date'
 
 module CbrainClient
-  class Userfile
-    # ID number of the file.
-    attr_accessor :id
+  class BatchTaskModReq
+    attr_accessor :tasklist
 
-    # Name of the file that the Userfile represents
-    attr_accessor :name
-
-    # Number of bytes used to store the file.
-    attr_accessor :size
-
-    # ID of the owner of the file.
-    attr_accessor :user_id
-
-    # ID of the parent Userfile, if any exists, or null otherwise.
-    attr_accessor :parent_id
-
-    # Type of the file. This is important in determining what tools can be run on the file. The most generic file types, are the Single File, which represents one file, and the File Collection, which represents a directory full of files.
-    attr_accessor :type
-
-    # ID of the group that owns the file, which determines its visibility status.
-    attr_accessor :group_id
-
-    # ID of the Data Provider that is hosting the persistent copy of the file. It may exist in caches across the systems that make up CBRAIN, as copies of the file are made in order to run scientific programs on them on remote systems.
-    attr_accessor :data_provider_id
-
-    # Boolean variable that specifies whether members of the owner group have access to modify or overwrite the file.
-    attr_accessor :group_writable
-
-    # Number of files that the Userfiles represents. For Single Files, this is always 1.
-    attr_accessor :num_files
-
-    # Boolean variable that specifies whether this file is hidden or not in the user interface.
-    attr_accessor :hidden
-
-    # Boolean variable that specifies whether any user can modify the contents of the file.
-    attr_accessor :immutable
-
-    # Boolean variable that specifies whether the file is available, uncompressed, or has been archived.
-    attr_accessor :archived
-
-    # Description of the file.
-    attr_accessor :description
+    attr_accessor :batch_ids
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'name' => :'name',
-        :'size' => :'size',
-        :'user_id' => :'user_id',
-        :'parent_id' => :'parent_id',
-        :'type' => :'type',
-        :'group_id' => :'group_id',
-        :'data_provider_id' => :'data_provider_id',
-        :'group_writable' => :'group_writable',
-        :'num_files' => :'num_files',
-        :'hidden' => :'hidden',
-        :'immutable' => :'immutable',
-        :'archived' => :'archived',
-        :'description' => :'description'
+        :'tasklist' => :'tasklist',
+        :'batch_ids' => :'batch_ids'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'id' => :'Integer',
-        :'name' => :'String',
-        :'size' => :'Integer',
-        :'user_id' => :'Integer',
-        :'parent_id' => :'Integer',
-        :'type' => :'String',
-        :'group_id' => :'Integer',
-        :'data_provider_id' => :'Integer',
-        :'group_writable' => :'String',
-        :'num_files' => :'Integer',
-        :'hidden' => :'String',
-        :'immutable' => :'String',
-        :'archived' => :'String',
-        :'description' => :'String'
+        :'tasklist' => :'Array<Integer>',
+        :'batch_ids' => :'Array<Integer>'
       }
     end
 
@@ -103,60 +41,16 @@ module CbrainClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.has_key?(:'tasklist')
+        if (value = attributes[:'tasklist']).is_a?(Array)
+          self.tasklist = value
+        end
       end
 
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'size')
-        self.size = attributes[:'size']
-      end
-
-      if attributes.has_key?(:'user_id')
-        self.user_id = attributes[:'user_id']
-      end
-
-      if attributes.has_key?(:'parent_id')
-        self.parent_id = attributes[:'parent_id']
-      end
-
-      if attributes.has_key?(:'type')
-        self.type = attributes[:'type']
-      end
-
-      if attributes.has_key?(:'group_id')
-        self.group_id = attributes[:'group_id']
-      end
-
-      if attributes.has_key?(:'data_provider_id')
-        self.data_provider_id = attributes[:'data_provider_id']
-      end
-
-      if attributes.has_key?(:'group_writable')
-        self.group_writable = attributes[:'group_writable']
-      end
-
-      if attributes.has_key?(:'num_files')
-        self.num_files = attributes[:'num_files']
-      end
-
-      if attributes.has_key?(:'hidden')
-        self.hidden = attributes[:'hidden']
-      end
-
-      if attributes.has_key?(:'immutable')
-        self.immutable = attributes[:'immutable']
-      end
-
-      if attributes.has_key?(:'archived')
-        self.archived = attributes[:'archived']
-      end
-
-      if attributes.has_key?(:'description')
-        self.description = attributes[:'description']
+      if attributes.has_key?(:'batch_ids')
+        if (value = attributes[:'batch_ids']).is_a?(Array)
+          self.batch_ids = value
+        end
       end
     end
 
@@ -178,20 +72,8 @@ module CbrainClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          name == o.name &&
-          size == o.size &&
-          user_id == o.user_id &&
-          parent_id == o.parent_id &&
-          type == o.type &&
-          group_id == o.group_id &&
-          data_provider_id == o.data_provider_id &&
-          group_writable == o.group_writable &&
-          num_files == o.num_files &&
-          hidden == o.hidden &&
-          immutable == o.immutable &&
-          archived == o.archived &&
-          description == o.description
+          tasklist == o.tasklist &&
+          batch_ids == o.batch_ids
     end
 
     # @see the `==` method
@@ -203,7 +85,7 @@ module CbrainClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, name, size, user_id, parent_id, type, group_id, data_provider_id, group_writable, num_files, hidden, immutable, archived, description].hash
+      [tasklist, batch_ids].hash
     end
 
     # Builds the object from hash

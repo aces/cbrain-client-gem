@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**tasks_get**](TasksApi.md#tasks_get) | **GET** /tasks | Get the list of Tasks.
 [**tasks_id_get**](TasksApi.md#tasks_id_get) | **GET** /tasks/{id} | Get information on a Task.
+[**tasks_operation_post**](TasksApi.md#tasks_operation_post) | **POST** /tasks/operation | Control and apply operation to a set of tasks
 [**tasks_post**](TasksApi.md#tasks_post) | **POST** /tasks | Create a new Task.
 
 
@@ -108,6 +109,63 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CbrainTask**](CbrainTask.md)
+
+### Authorization
+
+[BrainPortalSession](../README.md#BrainPortalSession)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json, application/xml
+
+
+
+# **tasks_operation_post**
+> Object tasks_operation_post(tasklist, operation)
+
+Control and apply operation to a set of tasks
+
+This method applies an operation to a set of tasks. The IDs of the tasks should be provided in the tasklist parameter, or one or many batches of tasks can be selected by providing their batch IDs in batchids. The operations supported are one of delete, archive, etc etc. 
+
+### Example
+```ruby
+# load the gem
+require 'cbrain_client'
+# setup authorization
+CbrainClient.configure do |config|
+  # Configure API key authorization: BrainPortalSession
+  config.api_key['cbrain_api_token'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['cbrain_api_token'] = 'Bearer'
+end
+
+api_instance = CbrainClient::TasksApi.new
+
+tasklist = CbrainClient::BatchTaskModReq.new # BatchTaskModReq | The IDs or batch IDs of the tasks
+
+operation = 'operation_example' # String | The operation to perform on the selected tasks
+
+
+begin
+  #Control and apply operation to a set of tasks
+  result = api_instance.tasks_operation_post(tasklist, operation)
+  p result
+rescue CbrainClient::ApiError => e
+  puts "Exception when calling TasksApi->tasks_operation_post: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tasklist** | [**BatchTaskModReq**](BatchTaskModReq.md)| The IDs or batch IDs of the tasks | 
+ **operation** | **String**| The operation to perform on the selected tasks | 
+
+### Return type
+
+**Object**
 
 ### Authorization
 
