@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Integer** | ID number of the file. | [optional] 
 **name** | **String** | Name of the file that the Userfile represents | [optional] 
+**browse_path** | **String** | The intermediate path of the file, but only on DataProviders that are of type MultiLevel. Otherwise the value is null | [optional] 
 **size** | **Integer** | Number of bytes used to store the file. | [optional] 
 **user_id** | **Integer** | ID of the owner of the file. | [optional] 
 **parent_id** | **Integer** | ID of the parent Userfile, if any exists, or null otherwise. | [optional] 
